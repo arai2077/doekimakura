@@ -6,3 +6,4 @@ Personal portfolio website for Doekimakura.
 - TypeScript
 - React
 - MobX or Redux Toolkit?
+- TailwindCSS + ShadCN UI
