@@ -5,5 +5,5 @@ Personal portfolio website for Doekimakura.
 - Vite
 - TypeScript
 - React
-- MobX or Redux Toolkit?
+- Zustand
 - TailwindCSS + ShadCN UI
