@@ -2,12 +2,14 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+
+
 function Card({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        "bg-card text-card-foreground flex flex-col gap-6 rounded-3xl border py-6 shadow-sm",
         className
       )}
       {...props}
@@ -48,6 +50,17 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+function CardImage({ className, alt="", ...props }: React.ComponentProps<"img">) {
+  return (
+    <img
+      data-slot="card-image"
+      className={cn("w-full aspect-3/2 rounded-t-xl", className)}
+      alt={alt}
+      {...props}
+    />
+  )
+}
+
 function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -75,7 +88,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-footer"
-      className={cn("flex items-center px-6 [.border-t]:pt-6", className)}
+      className={cn("flex items-center px-6 [.border-t]:pt-6 ", className)}
       {...props}
     />
   )
@@ -88,5 +101,6 @@ export {
   CardTitle,
   CardAction,
   CardDescription,
+  CardImage,
   CardContent,
 }
