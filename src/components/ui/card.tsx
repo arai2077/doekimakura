@@ -54,7 +54,7 @@ function CardImage({ className, alt="", ...props }: React.ComponentProps<"img">)
   return (
     <img
       data-slot="card-image"
-      className={cn("w-full aspect-3/2 rounded-t-xl", className)}
+      className={cn("w-full h-full object-cover aspect-3/2 rounded-t-xl", className)}
       alt={alt}
       {...props}
     />
@@ -78,7 +78,7 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-content"
-      className={cn("px-6", className)}
+      className={cn("px-1", className)}
       {...props}
     />
   )
