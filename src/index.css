@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "Poppins";
-  src: url("./fonts/Poppins-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
 }
 
 :root {
@@ -50,6 +50,7 @@
   /* Custom colors */
   --magenta: rgba(223, 65, 112, 1);
   --teal: rgba(1, 138, 135, 1);
+  --mediumpurple: rgba(151, 71, 255, 1);
 }
 
 @theme inline {
@@ -91,6 +92,7 @@
   /* Custom colors */
   --color-teal: var(--teal);
   --color-magenta: var(--magenta);
+  --color-mediumpurple: var(--mediumpurple);
 }
 
 .dark {
@@ -132,6 +134,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[url(src/assets/images/bg-paper.svg)] bg-cover bg-center bg-no-repeat bg-fixed text-foreground;
   }
 }
