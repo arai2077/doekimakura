@@ -1,10 +1,11 @@
 import { Navigation } from "@/components/navigation/Navigation";
-import { Portofolio3D } from "@/components/sections/Portofolio3D";
+import { Portfolio3D } from "@/components/sections/Portfolio3D";
+
 const App = () => {
   return (
     <>
       <Navigation />
-      <Portofolio3D />
+      <Portfolio3D />
     </>
   );
 };
