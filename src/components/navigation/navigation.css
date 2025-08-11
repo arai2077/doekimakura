@@ -2,3 +2,7 @@
   color: var(--color-secondary);
   background-color: var(--color-teal);
 }
+.contact-button:hover {
+  background-color: black;
+}
+
