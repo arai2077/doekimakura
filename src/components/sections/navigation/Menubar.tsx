@@ -6,7 +6,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "@/components/common/ui/navigation-menu";
+} from "@/components/ui/navigation-menu";
 import { MENU_ITEMS } from "./constants";
 import "./navigation.css";
 
