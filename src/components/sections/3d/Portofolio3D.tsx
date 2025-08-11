@@ -5,8 +5,8 @@ import {
   CardHeader,
   CardTitle,
   CardImage,
-} from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+} from "@/components/common/ui/card"
+import { Button } from "@/components/common/ui/button"
 import { CARD_CONTENTS_3D } from "./constants";
 import React from "react";
 
