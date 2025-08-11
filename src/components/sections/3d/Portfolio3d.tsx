@@ -10,7 +10,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { CARD_CONTENTS_3D } from "./constants";
 
-export const Portfolio3D: React.FC = () => {
+export const Portfolio3d: React.FC = () => {
   return (
     <div className="p-15 grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8">
       {CARD_CONTENTS_3D.map((item, index) => (

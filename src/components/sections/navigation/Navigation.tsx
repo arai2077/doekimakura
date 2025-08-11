@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { Menubar } from "@/components/navigation/Menubar";
-import { Icon } from "@/components/icons/Icon";
-import { ICON_SIZE } from "@/components/icons/constants";
+import { Menubar } from "@/components/sections/navigation/Menubar";
+import { Icon } from "@/components/common/icons/Icon";
+import { ICON_SIZE } from "@/components/common/icons/constants";
 
 export const Navigation: React.FC = () => {
   return (
