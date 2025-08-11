@@ -1,0 +1,32 @@
+span {
+  display: inline-block;
+  /* Base styles for all letters */
+}
+
+.letter:nth-child(1n) {
+  /* Styles for every odd letter */
+  animation: moveDown 0.5s steps(2, end) infinite alternate;
+}
+
+.letter:nth-child(2n) {
+  /* Styles for every other letter */
+  animation: moveUp 0.5s steps(2, end) infinite alternate;
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(2px);
+  }
+}

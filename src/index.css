@@ -7,6 +7,17 @@
   font-family: "Poppins";
   src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "KirangHaerang";
+  src: url("./assets/fonts/KirangHaerang-Regular.ttf") format("truetype");
+}
 
 :root {
   font-family: "Poppins";

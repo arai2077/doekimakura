@@ -1,3 +1,8 @@
+export const TITLE: { text: string; tooltipText: string } = {
+  text: "3D Portfolio",
+  tooltipText: "I learned 3D as a major. These are made by Autodesk Maya, Substance Painter and Zbrush.",
+};
+
 export const CARD_CONTENTS_3D: { imageSrc: string; title: string; content: string; badges: string[]; href: string}[] = [
   {
     imageSrc: "src/assets/images/helm.svg",
