@@ -29,9 +29,9 @@ export const Title = ({ text, tooltipText }: TitleProps): ReactElement => {
   return (
     <div className="relative group pl-4 max-w-[600px] w-full">
       <Bubble className="w-full h-auto" />
-      <div className="absolute -top-4 left-30 w-[450px] h-full flex items-center justify-between">
+      <div className="absolute -top-3 left-20 w-[450px] h-full flex items-center justify-between">
         <h1
-          className="text-5xl font-bold text-white"
+          className="text-4xl font-bold text-white"
           style={{ fontFamily: "KirangHaerang, sans-serif" }}
         >
           {getStaggeredText()}
