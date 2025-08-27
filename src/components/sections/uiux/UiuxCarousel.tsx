@@ -21,7 +21,7 @@ export const UiuxCarousel = () => {
   }, []);
 
   // Apply tweened opacity based on distance to each snap
-  const applyTweenOpacity = useCallback(() => {
+  const applyTweenEffects = useCallback(() => {
     if (!api) return;
 
     const slideNodes = api.slideNodes();
@@ -34,7 +34,8 @@ export const UiuxCarousel = () => {
       const diffToSnap = Math.abs(scrollSnaps[i] - progress);
       const tween = 1 - diffToSnap * TWEEN_FACTOR;
       const opacity = clamp(tween, TWEEN_MIN_OPACITY, 1);
-      (slideNodes[i] as HTMLElement).style.opacity = String(opacity);
+      const slide = slideNodes[i] as HTMLElement;
+      slide.style.opacity = String(opacity);
     }
   }, [api, clamp]);
 
@@ -42,23 +43,36 @@ export const UiuxCarousel = () => {
     if (!api) return;
 
     // Initialize once mounted
-    applyTweenOpacity();
+    applyTweenEffects();
 
     // Recalculate on scroll & reInit
-    api.on("scroll", applyTweenOpacity);
-    api.on("reInit", applyTweenOpacity);
+    api.on("scroll", applyTweenEffects);
+    api.on("reInit", applyTweenEffects);
+    api.on("resize", applyTweenEffects);
 
     return () => {
-      api.off("scroll", applyTweenOpacity);
-      api.off("reInit", applyTweenOpacity);
+      api.off("scroll", applyTweenEffects);
+      api.off("reInit", applyTweenEffects);
+      api.off("resize", applyTweenEffects);
     };
-  }, [api, applyTweenOpacity]);
+  }, [api, applyTweenEffects]);
+
+  const renderSlidingPanel = (item: (typeof CAROUSEL_ITEMS)[0]) => (
+    <div className="p-16 h-[600px] w-full flex flex-col justify-center rounded-3xl absolute inset-0 translate-y-200 opacity-0 transition ease-in-out duration-300 bg-white">
+      <div className="font-semibold">{item.title}</div>
+      <div>{item.description}</div>
+      <Button variant="default" className="ml-auto">
+        Learn More
+      </Button>
+      <CarouselPrevious className="left-2" />
+      <CarouselNext className="right-2" />
+    </div>
+  );
 
   return (
     <div className="flex justify-center items-center">
       <Carousel
         opts={{
-          align: "center",
           loop: true,
         }}
         setApi={setApi}
@@ -68,26 +82,18 @@ export const UiuxCarousel = () => {
           {CAROUSEL_ITEMS.map((item, index) => (
             <CarouselItem
               key={index}
-              className="sm:basis-1/1 md:basis-1/2 lg:basis-1/3"
+              className="basis-1/2"
               style={{ opacity: TWEEN_MIN_OPACITY }}
             >
-              <div className="panel-container p-1">
-                <Card className="panel-trigger min-w-[500px] transition ease-in-out hover:-translate-y-3 hover:-translate-x-0 hover:shadow-[14px_16px_0px_var(--color-magenta)]/100">
-                  <CardContent className="flex flex-col justify-center aspect-square items-start justify-center p-6">
+              <div className="relative p-1 h-[600px]">
+                <Card className="h-[600px] panel-trigger transition ease-in-out hover:-translate-y-3 hover:-translate-x-0 hover:shadow-[14px_16px_0px_var(--color-magenta)]/100">
+                  <CardContent className="h-[600px] flex flex-col justify-center aspect-square items-start justify-center hover:[&>*]:-translate-y-0 hover:[&>*]:opacity-100">
                     <img
                       src={item.imageSrc}
                       alt={item.imageTitle}
-                      className="panel-image"
+                      className="rounded-3xl absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="sliding-panel p-8 h-full w-full flex flex-col gap-4 justify-center">
-                      <div className="font-semibold">{item.title}</div>
-                      <div>{item.description}</div>
-                      <Button variant="default" className="ml-auto">
-                        Learn More
-                      </Button>
-                      <CarouselPrevious />
-                      <CarouselNext />
-                    </div>
+                    {renderSlidingPanel(item)}
                   </CardContent>
                 </Card>
               </div>
