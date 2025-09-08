@@ -26,19 +26,17 @@ export const Portfolio3d: React.FC = () => {
                     className="group-hover:scale-110 transition ease-in-out"
                   />
                 </div>
-                <CardTitle className="text-2xl mb-0 font-bold text-magenta dark:text-white pt-3">
+                <CardTitle className="mb-0 font-bold text-magenta dark:text-white pt-3">
                   {item.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-2xl px-2">
-                {item.content}
-              </CardContent>
+              <CardContent className="px-2">{item.content}</CardContent>
               <CardFooter className="px-2 mt-auto">
                 {item.badges.map((badge, badgeIndex) => (
                   <Badge
                     key={badgeIndex}
                     variant="outline"
-                    className="ml-auto px-6 pt-0 pb-0 mt-0 mb-0 border border-mediumpurple rounded-full text-mediumpurple text-2xl"
+                    className="ml-auto px-6 pt-0 pb-0 mt-0 mb-0 border border-mediumpurple rounded-full text-mediumpurple text-md"
                   >
                     {badge}
                   </Badge>
