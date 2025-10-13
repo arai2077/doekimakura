@@ -1,39 +1,27 @@
 import React from "react";
 import { Title } from "@/components/common/title/Title";
-import { CARD_CONTENTS, TITLE } from "./constants";
 import { Card, CardContent } from "@/components/ui/card";
-
-import Bubble from "@/assets/images/black-bubble.svg?react";
 import { DotButton } from "../uiux/DotButton";
 import { Button } from "@/components/ui/button";
 
+import Bubble from "@/assets/images/black-bubble.svg?react";
+import { CARD_CONTENTS, TITLE } from "./constants";
+
 export const WorkExperience = () => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const item = CARD_CONTENTS[selectedIndex]; // Example: Display the first work experience item
+  const item = CARD_CONTENTS[selectedIndex];
 
-  const renderBulletPoint = (point: string) => {
-    const parts = point.split(/(\{b\}.*?\{\/b\})/g);
-    return (
-      <li>
-        {parts.map((part, idx) => {
-          const isFirstPart = idx === 0 || parts[idx - 1] === "";
-          if (part.startsWith("{b}") && part.endsWith("{/b}")) {
-            const boldText = part.slice(3, -4);
-            return (
-              <React.Fragment key={idx}>
-                {isFirstPart ? "" : " "}
-                <strong>{boldText}</strong>{" "}
-              </React.Fragment>
-            );
-          }
-          return <span key={idx}>{part}</span>;
-        })}
-      </li>
-    );
+  const handleSelectIndex = (index: number) => () => {
+    setSelectedIndex(index);
+  };
+
+  const renderBulletPoint = (point: string, index: number) => {
+    const bolded = point.replace(/\{b\}(.*?)\{\/b\}/g, "<strong>$1</strong>");
+    return <li key={index} dangerouslySetInnerHTML={{ __html: bolded }} />;
   };
 
   return (
-    <>
+    <div>
       <Title text={TITLE.text} tooltipText={TITLE.tooltipText} />
       <div className="mx-8">
         <section>
@@ -42,15 +30,19 @@ export const WorkExperience = () => {
               <div className="px-8 py-4 w-full flex flex-col justify-center rounded-3xl">
                 <div className="relative group pl-4 w-[700px] mb-8">
                   <Bubble className="w-full h-auto" />
-                  <div className="absolute -top-0 left-0 w-[700px] pt-8 pb-4 pl-10 pr-4 flex flex-col justify-between h-full">
-                    <h1 className="text-2xl text-white">{item.title}</h1>
-                    <h2 className="absolute bottom-3 left-41 text-l text-white">
+                  <div className="absolute top-0 left-0 w-[700px] h-full">
+                    <h1 className="title absolute top-8 left-10 text-2xl text-white">
+                      {item.title}
+                    </h1>
+                    <h2 className="title absolute bottom-3 left-41 text-l text-white">
                       {item.subTitle}
                     </h2>
                   </div>
                 </div>
-                <ul className="mx-24 list-disc list-inside">
-                  {item.bulletPoints.map((point) => renderBulletPoint(point))}
+                <ul className="bulletpoint mx-24 list-disc list-inside">
+                  {item.bulletPoints.map((point, index) =>
+                    renderBulletPoint(point, index)
+                  )}
                 </ul>
               </div>
 
@@ -58,7 +50,7 @@ export const WorkExperience = () => {
                 {CARD_CONTENTS.map((_, index) => (
                   <DotButton
                     key={index}
-                    onClick={() => setSelectedIndex(index)}
+                    onClick={handleSelectIndex(index)}
                     className={"dot".concat(
                       index === selectedIndex ? " dot--selected" : ""
                     )}
@@ -69,12 +61,12 @@ export const WorkExperience = () => {
           </Card>
           <div className="flex justify-end items-center gap-8 mt-4">
             <div>{TITLE.footerText}</div>
-            <Button className="bg-[var(--teal)] rounded-full px-8 text-xl text-white">
+            <Button className="bg-[var(--teal)] rounded-full px-8 text-xl text-white cursor-pointer">
               {TITLE.footerButtonText}
             </Button>
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 };
