@@ -41,3 +41,4 @@ export const TWEEN_MIN_OPACITY = 0.3;
 export const TWEEN_FACTOR = 3;
 export const INACTIVE_SCALE = 0.5;
 export const TRANSITION_MS = 300;
+export const CAROUSEL_OPTIONS = { loop: true };

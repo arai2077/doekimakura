@@ -9,11 +9,22 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { CAROUSEL_ITEMS, TWEEN_FACTOR, TWEEN_MIN_OPACITY } from "./constants";
+import { DotButton } from "./DotButton";
+import { useDotButton } from "./useDotButton";
+import {
+  CAROUSEL_ITEMS,
+  CAROUSEL_OPTIONS,
+  TWEEN_FACTOR,
+  TWEEN_MIN_OPACITY,
+} from "./constants";
 import "./uiux.css";
 
 export const UiuxCarousel = () => {
   const [api, setApi] = useState<CarouselApi | null>(null);
+
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(
+    api || undefined
+  );
 
   // Clamp helper
   const clamp = useCallback((n: number, min: number, max: number) => {
@@ -70,14 +81,8 @@ export const UiuxCarousel = () => {
   );
 
   return (
-    <div className="flex justify-center items-center">
-      <Carousel
-        opts={{
-          loop: true,
-        }}
-        setApi={setApi}
-        className="w-full px-8"
-      >
+    <div className="flex flex-col justify-center items-center">
+      <Carousel opts={CAROUSEL_OPTIONS} setApi={setApi} className="w-full">
         <CarouselContent>
           {CAROUSEL_ITEMS.map((item, index) => (
             <CarouselItem
@@ -101,6 +106,18 @@ export const UiuxCarousel = () => {
           ))}
         </CarouselContent>
       </Carousel>
+
+      <div className="dot-buttons mt-4 flex justify-center items-center">
+        {scrollSnaps.map((_, index) => (
+          <DotButton
+            key={index}
+            onClick={() => onDotButtonClick(index)}
+            className={"dot".concat(
+              index === selectedIndex ? " dot--selected" : ""
+            )}
+          />
+        ))}
+      </div>
     </div>
   );
 };
