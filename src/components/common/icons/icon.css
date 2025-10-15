@@ -1,0 +1,8 @@
+svg:hover path[fill] {
+  fill: var(--color-primary);
+  transition: transform 0.25s ease;
+}
+svg:hover path[stroke] {
+  stroke: var(--color-primary);
+  transition: transform 0.25s ease;
+}
