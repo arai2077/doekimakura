@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardImage } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -18,6 +18,7 @@ import {
   TWEEN_MIN_OPACITY,
 } from "./constants";
 import "./uiux.css";
+import { Title } from "@/components/common/title/Title";
 
 export const UiuxCarousel = () => {
   const [api, setApi] = useState<CarouselApi | null>(null);
@@ -69,14 +70,20 @@ export const UiuxCarousel = () => {
   }, [api, applyTweenEffects]);
 
   const renderSlidingPanel = (item: (typeof CAROUSEL_ITEMS)[0]) => (
-    <div className="p-16 h-[600px] w-full flex flex-col justify-center rounded-3xl absolute inset-0 translate-y-200 opacity-0 transition ease-in-out duration-300 bg-white">
-      <div className="font-semibold">{item.title}</div>
-      <div>{item.description}</div>
-      <Button variant="default" className="ml-auto">
-        Learn More
+    <div className="px-16 py-8 h-[600px] w-full flex flex-col justify-between items-center rounded-3xl absolute inset-0 translate-y-200 opacity-0 transition ease-in-out duration-300 bg-white">
+      <Title
+        text={item.title}
+        tooltipText="Placeholder until we can get the correct banner"
+      />
+      <div className="flex mx-16 mt-4 mb-8">{item.description}</div>
+      <Button
+        variant="default"
+        className="px-8 ml-auto mr-16 rounded-full text-xl bg-[var(--teal)]"
+      >
+        {"Learn More >>>"}
       </Button>
-      <CarouselPrevious className="left-2" />
-      <CarouselNext className="right-2" />
+      <CarouselPrevious className="left-2 cursor-pointer border-none text-[var(--muted-foreground)] hover:text-[var(--teal)] hover:bg-0" />
+      <CarouselNext className="right-2 cursor-pointer border-none text-[var(--muted-foreground)] hover:text-[var(--teal)] hover:bg-0" />
     </div>
   );
 
@@ -87,13 +94,13 @@ export const UiuxCarousel = () => {
           {CAROUSEL_ITEMS.map((item, index) => (
             <CarouselItem
               key={index}
-              className="basis-1/2"
+              className="basis-1/2 my-4"
               style={{ opacity: TWEEN_MIN_OPACITY }}
             >
               <div className="relative p-1 h-[600px]">
                 <Card className="h-[600px] panel-trigger transition ease-in-out hover:-translate-y-3 hover:-translate-x-0 hover:shadow-[14px_16px_0px_var(--color-magenta)]/100">
                   <CardContent className="h-[600px] flex flex-col justify-center aspect-square items-start justify-center hover:[&>*]:-translate-y-0 hover:[&>*]:opacity-100">
-                    <img
+                    <CardImage
                       src={item.imageSrc}
                       alt={item.imageTitle}
                       className="rounded-3xl absolute inset-0 w-full h-full object-cover"

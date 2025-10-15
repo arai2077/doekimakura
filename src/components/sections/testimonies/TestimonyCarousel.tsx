@@ -62,7 +62,7 @@ export const TestimonyCarousel = () => {
   );
 
   return (
-    <div className="flex flex-col px-8 pt-8 pb-4 bg-white border-b-16 border-b-[var(--magenta)]">
+    <div className="flex flex-col px-8 pt-8 pb-4 bg-white border-b-16 border-b-[var(--magenta)] mb-16">
       <Carousel
         opts={CAROUSEL_OPTIONS}
         setApi={setApi}
