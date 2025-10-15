@@ -2,6 +2,7 @@ import { Navigation } from "@/components/sections/navigation/Navigation";
 import { Uiux } from "@/components/sections/uiux/Uiux";
 import { Portfolio3d } from "./components/sections/3d/Portfolio3d";
 import { MySkills } from "./components/sections/myskills/MySkills";
+import { Contact } from "./components/sections/contact/Contact";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <MySkills />
       <Uiux />
       <Portfolio3d />
+      <Contact />
     </div>
   );
 };
