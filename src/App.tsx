@@ -8,6 +8,7 @@ import { Portfolio3d } from "./components/sections/3d/Portfolio3d";
 import { MySkills } from "./components/sections/myskills/MySkills";
 import { Companies } from "./components/sections/companies/Companies";
 import { Contact } from "./components/sections/contact/Contact";
+import { Footer } from "./components/sections/footer/Footer";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Testimonies />
       <Companies />
       <Contact />
+      <Footer />
     </div>
   );
 };
