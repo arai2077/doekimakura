@@ -9,8 +9,8 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { DotButton } from "./DotButton";
-import { useDotButton } from "./useDotButton";
+import { DotButton } from "@/components/common/dotbutton/DotButton";
+import { useDotButton } from "@/components/common/dotbutton/useDotButton";
 import {
   CAROUSEL_ITEMS,
   CAROUSEL_OPTIONS,
