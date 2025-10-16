@@ -7,6 +7,7 @@ import { Testimonies } from "@/components/sections/testimonies/Testimonies";
 import { Portfolio3d } from "./components/sections/3d/Portfolio3d";
 import { MySkills } from "./components/sections/myskills/MySkills";
 import { Companies } from "./components/sections/companies/Companies";
+import { Contact } from "./components/sections/contact/Contact";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <WorkExperience />
       <Testimonies />
       <Companies />
+      <Contact />
     </div>
   );
 };
