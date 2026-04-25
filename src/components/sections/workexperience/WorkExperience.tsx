@@ -1,11 +1,11 @@
 import React from "react";
 import { Title } from "@/components/common/title/Title";
 import { Card, CardContent } from "@/components/ui/card";
-import { DotButton } from "../uiux/DotButton";
+import { DotButton } from "@/components/common/dotbutton/DotButton";
 import { Button } from "@/components/ui/button";
 
 import Bubble from "@/assets/images/black-bubble.svg?react";
-import { CARD_CONTENTS, TITLE } from "./constants";
+import { CARD_CONTENTS, TITLE } from "./constants.tsx";
 
 export const WorkExperience = () => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -13,11 +13,6 @@ export const WorkExperience = () => {
 
   const handleSelectIndex = (index: number) => () => {
     setSelectedIndex(index);
-  };
-
-  const renderBulletPoint = (point: string, index: number) => {
-    const bolded = point.replace(/\{b\}(.*?)\{\/b\}/g, "<strong>$1</strong>");
-    return <li key={index} dangerouslySetInnerHTML={{ __html: bolded }} />;
   };
 
   return (
@@ -40,9 +35,9 @@ export const WorkExperience = () => {
                   </div>
                 </div>
                 <ul className="bulletpoint mx-24 list-disc list-inside">
-                  {item.bulletPoints.map((point, index) =>
-                    renderBulletPoint(point, index)
-                  )}
+                  {item.bulletPoints.map((point, index) => (
+                    <li key={index}>{point}</li>
+                  ))}
                 </ul>
               </div>
 
