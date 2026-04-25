@@ -17,7 +17,6 @@ import {
   TWEEN_FACTOR,
   TWEEN_MIN_OPACITY,
 } from "./constants";
-import "./uiux.css";
 import { Title } from "@/components/common/title/Title";
 
 export const UiuxCarousel = () => {

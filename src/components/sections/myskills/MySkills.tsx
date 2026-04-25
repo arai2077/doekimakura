@@ -18,37 +18,45 @@ export const MySkills: React.FC = () => {
       self.add("slideIn", () => {
         animate(".uiux-chibi", {
           translateX: "-50%",
-          ease: "linear",
+          duration: 800,
+          ease: "easeInQuad",
         });
         animate(".uiux-icons", {
           translateX: "-50%",
-          ease: "linear",
+          duration: 800,
+          ease: "easeInQuad",
         });
         animate(".uiux-devices", {
           translateX: "-50%",
-          ease: "linear",
+          duration: 800,
+          ease: "easeInQuad",
         });
         animate(".uiux-gradient", {
           translateX: "-50%",
-          ease: "linear",
+          duration: 800,
+          ease: "easeInQuad",
         });
       });
       self.add("slideOut", () => {
         animate(".uiux-chibi", {
           translateX: "50%",
-          ease: "linear",
+          duration: 600,
+          ease: "easeOutQuad",
         });
         animate(".uiux-icons", {
           translateX: "50%",
-          ease: "linear",
+          duration: 600,
+          ease: "easeOutQuad",
         });
         animate(".uiux-devices", {
           translateX: "50%",
-          ease: "linear",
+          duration: 600,
+          ease: "easeOutQuad",
         });
         animate(".uiux-gradient", {
           translateX: "50%",
-          ease: "linear",
+          duration: 600,
+          ease: "easeOutQuad",
         });
       });
     });
@@ -75,7 +83,7 @@ export const MySkills: React.FC = () => {
         <div
           onMouseOver={handleSlideIn}
           onMouseLeave={handleSlideOut}
-          className="uiux-container h-96 flex justify-between items-center bg-white hover:bg-gradient-to-r hover:from-[#C82E5B] hover:to-[#FFC862] transition-colors duration-500 ease-in-out shadow-lg cursor-pointer overflow-x-hidden relative"
+          className="uiux-container h-72 flex justify-between items-center bg-white hover:bg-gradient-to-r hover:from-[#C82E5B] hover:to-[#FFC862] transition-colors duration-500 ease-in-out shadow-lg cursor-pointer overflow-x-hidden relative"
         >
           <div className="flex flex-col items-center gap-4">
             <p className="uiux-text ml-32 text-9xl bg-gradient-to-r from-[#C82E5B] to-[#FFC862] text-transparent bg-clip-text">

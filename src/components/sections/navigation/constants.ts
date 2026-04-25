@@ -1,5 +1,9 @@
 export const MENU_ITEMS: { title: string; href: string }[] = [
   {
+    title: "About",
+    href: "#about"
+  },
+  {
     title: "UI/UX",
     href: "#uiux"
   },

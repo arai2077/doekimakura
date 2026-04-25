@@ -1,0 +1,23 @@
+.about-section {
+  width: 100%;
+}
+
+.about-image-wrapper {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.about-image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.about-image-wrapper:hover .about-image {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .about-image-wrapper {
+    aspect-ratio: auto;
+    max-height: 400px;
+  }
+}

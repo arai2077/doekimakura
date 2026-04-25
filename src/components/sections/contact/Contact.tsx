@@ -2,10 +2,6 @@ import { useState } from "react";
 import { TitleBlock } from "./TitleBlock";
 import { ContactForm } from "./ContactForm";
 
-export interface ContactProps {
-  className?: string;
-}
-
 export const Contact = () => {
   const [values, setValues] = useState({ name: "", email: "", message: "" });
 
@@ -18,7 +14,10 @@ export const Contact = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Handle form submission logic here
+    const { name, email, message } = values;
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+    const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:jennifer.s.lesmana@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (

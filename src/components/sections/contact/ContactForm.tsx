@@ -27,6 +27,7 @@ export const ContactForm = ({
           <Label htmlFor="name">Name</Label>
           <Input
             id="name"
+            name="name"
             type="text"
             value={values.name}
             onChange={handleChange}
@@ -36,6 +37,7 @@ export const ContactForm = ({
           <Label htmlFor="email">Email</Label>
           <Input
             id="email"
+            name="email"
             type="email"
             value={values.email}
             onChange={handleChange}
@@ -45,6 +47,7 @@ export const ContactForm = ({
           <Label htmlFor="message">Message</Label>
           <Textarea
             id="message"
+            name="message"
             value={values.message}
             onChange={handleChange}
           />
