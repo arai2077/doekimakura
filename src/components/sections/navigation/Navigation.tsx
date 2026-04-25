@@ -7,7 +7,7 @@ import { ICON_SIZE } from "@/components/common/icons/constants";
 
 export const Navigation: React.FC = () => {
   return (
-    <nav className="flex items-center justify-between p-4">
+    <nav className="flex items-center justify-between p-4 sticky top-0 z-50">
       <Icon name="union" size={ICON_SIZE.LARGE} />
       <Menubar />
     </nav>

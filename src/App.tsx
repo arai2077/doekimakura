@@ -12,20 +12,22 @@ const App = () => {
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <Navigation />
-      <MySkills />
-      <section id="uiux">
+      <section id="my-skills" className="mb-3xl">
+        <MySkills />
+      </section>
+      <section id="uiux" className="mb-3xl">
         <Uiux />
       </section>
-      <section id="3d">
+      <section id="3d" className="mb-3xl">
         <Portfolio3d />
       </section>
-      <section id="illust">
+      <section id="illust" className="mb-3xl">
         <Testimonies />
       </section>
-      <section id="job-experience">
+      <section id="job-experience" className="mb-3xl">
         <WorkExperience />
       </section>
-      <section id="info">
+      <section id="info" className="mb-3xl">
         <div>
           <Companies />
           <Contact />

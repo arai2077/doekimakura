@@ -162,6 +162,16 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-[url(src/assets/images/bg-paper.svg)] bg-cover bg-center bg-no-repeat bg-fixed text-foreground;
+    @apply text-foreground;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url(src/assets/images/bg-paper.svg) center / cover no-repeat;
+    opacity: 0.3;
+    z-index: -1;
   }
 }
